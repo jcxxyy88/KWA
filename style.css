@@ -6,12 +6,12 @@
 }
 
 :root {
-    --royal-blue: #0a2463;
-    --royal-gold: #b8860b;
-    --royal-purple: #4b0082;
-    --crimson: #8c1d40;
+    --hunter-green: #355E3B;
+    --hunter-gold: #D4AF37;
+    --forest-green: #2E4D2B;
+    --emerald: #1C7C54;
     --ivory: #f8f8f8;
-    --velvet: #2a0a3d;
+    --dark-green: #1A3020;
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
 }
