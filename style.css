@@ -6,12 +6,12 @@
 }
 
 :root {
-    --primary: #1a4b8c;
-    --secondary: #e63946;
-    --accent: #2a9d8f;
-    --light: #f8f9fa;
-    --dark: #212529;
-    --gray: #6c757d;
+    --royal-blue: #0a2463;
+    --royal-gold: #b8860b;
+    --royal-purple: #4b0082;
+    --crimson: #8c1d40;
+    --ivory: #f8f8f8;
+    --velvet: #2a0a3d;
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
 }
@@ -19,12 +19,12 @@
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
-    color: var(--dark);
+    color: #333;
     background-color: #fff;
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
 }
 
@@ -44,6 +44,7 @@ h1, h2, h3, h4 {
     top: 0;
     z-index: 1000;
     padding: 15px 0;
+    border-bottom: 3px solid var(--royal-gold);
 }
 
 .navbar .container {
@@ -57,7 +58,8 @@ h1, h2, h3, h4 {
     align-items: center;
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--royal-blue);
+    font-family: 'Playfair Display', serif;
 }
 
 .logo i {
@@ -76,7 +78,7 @@ h1, h2, h3, h4 {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--dark);
+    color: var(--royal-blue);
     font-weight: 600;
     font-size: 1rem;
     transition: var(--transition);
@@ -85,7 +87,7 @@ h1, h2, h3, h4 {
 }
 
 .nav-links a:hover {
-    color: var(--primary);
+    color: var(--royal-gold);
 }
 
 .nav-links a:after {
@@ -95,7 +97,7 @@ h1, h2, h3, h4 {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--primary);
+    background-color: var(--royal-gold);
     transition: var(--transition);
 }
 
@@ -106,8 +108,8 @@ h1, h2, h3, h4 {
 /* Hero Section */
 .hero {
     height: 80vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+    background: linear-gradient(rgba(10, 36, 99, 0.7), rgba(75, 0, 130, 0.7)), 
+                url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -122,7 +124,7 @@ h1, h2, h3, h4 {
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
+    max-width: 900px;
     padding: 0 20px;
 }
 
@@ -132,54 +134,103 @@ h1, h2, h3, h4 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+.royal-accent {
+    color: var(--royal-gold);
+    font-weight: 700;
+}
+
 .subtitle {
     font-size: 1.5rem;
     margin-bottom: 30px;
     opacity: 0.9;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cta-button {
     display: inline-block;
-    background-color: var(--secondary);
-    color: white;
-    padding: 15px 30px;
+    background-color: var(--royal-gold);
+    color: var(--royal-blue);
+    padding: 15px 35px;
     border-radius: 50px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.1rem;
     transition: var(--transition);
-    border: none;
+    border: 2px solid var(--royal-gold);
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+    box-shadow: 0 4px 15px rgba(184, 134, 11, 0.3);
 }
 
 .cta-button:hover {
-    background-color: #c1121f;
+    background-color: transparent;
+    color: white;
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
+    box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
 }
 
 .cta-button i {
-    margin-left: 8px;
+    margin-left: 10px;
+}
+
+/* Motto Banner */
+.motto-banner {
+    background: linear-gradient(to right, var(--royal-blue), var(--royal-purple));
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 3px solid var(--royal-gold);
+}
+
+.motto-text {
+    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.motto-text i {
+    color: var(--royal-gold);
+    margin: 0 10px;
+}
+
+.motto-year {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--royal-gold);
+    margin-top: 5px;
+    letter-spacing: 3px;
 }
 
 /* Features Section */
 .features {
     padding: 80px 0;
-    background-color: var(--light);
+    background-color: var(--ivory);
 }
 
 .section-title {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 15px;
-    color: var(--primary);
+    color: var(--royal-blue);
+    position: relative;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: var(--royal-gold);
+    margin: 15px auto 30px;
 }
 
 .section-subtitle {
     text-align: center;
     font-size: 1.2rem;
-    color: var(--gray);
+    color: #666;
     margin-bottom: 50px;
     max-width: 700px;
     margin-left: auto;
@@ -200,6 +251,7 @@ h1, h2, h3, h4 {
     box-shadow: var(--shadow);
     transition: var(--transition);
     text-align: center;
+    border-top: 4px solid var(--royal-gold);
 }
 
 .feature-card:hover {
@@ -209,29 +261,30 @@ h1, h2, h3, h4 {
 
 .feature-icon {
     font-size: 3rem;
-    color: var(--primary);
+    color: var(--royal-blue);
     margin-bottom: 20px;
 }
 
 .feature-card h3 {
     font-size: 1.5rem;
     margin-bottom: 15px;
-    color: var(--dark);
+    color: var(--royal-blue);
 }
 
 .feature-card p {
-    color: var(--gray);
+    color: #666;
     margin-bottom: 20px;
 }
 
 .highlight {
     display: inline-block;
-    background-color: rgba(42, 157, 143, 0.1);
-    color: var(--accent);
+    background-color: rgba(184, 134, 11, 0.1);
+    color: var(--royal-gold);
     padding: 8px 15px;
     border-radius: 20px;
     font-weight: 600;
     font-size: 0.9rem;
+    border: 1px solid rgba(184, 134, 11, 0.3);
 }
 
 /* Academics Section */
@@ -253,7 +306,7 @@ h1, h2, h3, h4 {
 .academics p {
     font-size: 1.2rem;
     margin-bottom: 30px;
-    color: var(--gray);
+    color: #666;
 }
 
 .stats {
@@ -269,11 +322,12 @@ h1, h2, h3, h4 {
 .stat-number {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--royal-blue);
+    font-family: 'Playfair Display', serif;
 }
 
 .stat-label {
-    color: var(--gray);
+    color: #666;
     font-size: 0.9rem;
     margin-top: 5px;
 }
@@ -289,13 +343,13 @@ h1, h2, h3, h4 {
 }
 
 .academic-list i {
-    color: var(--accent);
+    color: var(--royal-gold);
     margin-right: 10px;
     margin-top: 5px;
 }
 
 .academics-image {
-    background-color: #e9ecef;
+    background: linear-gradient(135deg, var(--royal-blue), var(--royal-purple));
     border-radius: 10px;
     height: 400px;
     display: flex;
@@ -303,24 +357,29 @@ h1, h2, h3, h4 {
     align-items: center;
     justify-content: center;
     box-shadow: var(--shadow);
+    color: white;
 }
 
 .image-placeholder {
     text-align: center;
-    color: var(--gray);
+    color: white;
 }
 
 .image-placeholder i {
     font-size: 5rem;
-    color: var(--primary);
+    color: var(--royal-gold);
     margin-bottom: 20px;
-    opacity: 0.7;
+}
+
+.accent-text {
+    color: var(--royal-gold);
+    font-weight: 600;
 }
 
 /* Teachers Section */
 .teachers {
     padding: 80px 0;
-    background-color: var(--light);
+    background-color: var(--ivory);
 }
 
 .teacher-profiles {
@@ -337,6 +396,7 @@ h1, h2, h3, h4 {
     text-align: center;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    border-top: 4px solid var(--royal-gold);
 }
 
 .teacher-card:hover {
@@ -347,7 +407,7 @@ h1, h2, h3, h4 {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: #e9ecef;
+    background: linear-gradient(135deg, var(--royal-blue), var(--royal-purple));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -356,23 +416,34 @@ h1, h2, h3, h4 {
 
 .teacher-img i {
     font-size: 2.5rem;
-    color: var(--primary);
+    color: var(--royal-gold);
 }
 
 .teacher-card h4 {
     margin-bottom: 5px;
-    color: var(--dark);
+    color: var(--royal-blue);
 }
 
 .teacher-subject {
-    color: var(--primary);
+    color: var(--royal-purple);
     font-weight: 600;
     margin-bottom: 10px;
+    font-size: 0.9rem;
 }
 
 .teacher-bio {
-    color: var(--gray);
+    color: #666;
     font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.teacher-tenure {
+    color: var(--royal-gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    margin-top: 10px;
 }
 
 .teacher-stats {
@@ -391,23 +462,87 @@ h1, h2, h3, h4 {
 }
 
 .stat-desc {
-    color: var(--gray);
+    color: #666;
     font-size: 0.9rem;
     max-width: 120px;
+}
+
+/* Tradition Section */
+.tradition {
+    padding: 80px 0;
+}
+
+.tradition .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.tradition-image {
+    background: linear-gradient(135deg, var(--royal-purple), var(--velvet));
+    border-radius: 10px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    color: white;
+}
+
+.tradition-list {
+    margin-top: 30px;
+}
+
+.tradition-item {
+    margin-bottom: 25px;
+    padding-left: 20px;
+    border-left: 3px solid var(--royal-gold);
+}
+
+.tradition-item h4 {
+    color: var(--royal-blue);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.tradition-item h4 i {
+    color: var(--royal-gold);
+    margin-right: 10px;
+}
+
+.tradition-item p {
+    color: #666;
 }
 
 /* Call to Action */
 .cta-section {
     padding: 80px 0;
-    background: linear-gradient(135deg, var(--primary), #0d3b66);
+    background: linear-gradient(135deg, var(--royal-blue), var(--royal-purple));
     color: white;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(to right, var(--royal-gold), #ffd700, var(--royal-gold));
 }
 
 .cta-content {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .cta-section h2 {
@@ -430,12 +565,20 @@ h1, h2, h3, h4 {
 }
 
 .cta-button.primary {
-    background-color: var(--secondary);
+    background-color: var(--royal-gold);
+    color: var(--royal-blue);
+    border: 2px solid var(--royal-gold);
 }
 
 .cta-button.secondary {
     background-color: transparent;
     border: 2px solid white;
+    color: white;
+}
+
+.cta-button.secondary:hover {
+    background-color: white;
+    color: var(--royal-blue);
 }
 
 .contact-info {
@@ -454,28 +597,58 @@ h1, h2, h3, h4 {
 
 .contact-info i {
     margin-right: 10px;
-    color: var(--accent);
+    color: var(--royal-gold);
 }
 
 /* Footer */
 footer {
-    background-color: var(--dark);
+    background-color: var(--velvet);
     color: white;
     padding: 40px 0;
     text-align: center;
+    border-top: 5px solid var(--royal-gold);
 }
 
 .footer-logo {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 15px;
     color: white;
+    font-family: 'Playfair Display', serif;
 }
 
 .footer-motto {
     font-style: italic;
-    margin-bottom: 15px;
-    opacity: 0.8;
+    margin-bottom: 25px;
+    opacity: 0.9;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.legacy-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(184, 134, 11, 0.1);
+    border: 2px solid var(--royal-gold);
+    border-radius: 10px;
+    padding: 15px 25px;
+    margin: 20px 0 30px;
+}
+
+.legacy-years {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--royal-gold);
+    margin-right: 15px;
+    font-family: 'Playfair Display', serif;
+}
+
+.legacy-text {
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
 
 .footer-note {
@@ -494,18 +667,15 @@ footer {
         font-size: 1.2rem;
     }
     
-    .academics .container {
+    .academics .container,
+    .tradition .container {
         grid-template-columns: 1fr;
     }
     
-    .stats {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
+    .stats,
     .teacher-stats {
         flex-direction: column;
-        gap: 30px;
+        gap: 20px;
     }
     
     .nav-links {
@@ -515,5 +685,19 @@ footer {
     .contact-info {
         flex-direction: column;
         gap: 15px;
+    }
+    
+    .motto-text {
+        font-size: 1.4rem;
+    }
+    
+    .legacy-badge {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .legacy-years {
+        margin-right: 0;
+        margin-bottom: 10px;
     }
 }
