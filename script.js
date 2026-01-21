@@ -1,4 +1,4 @@
-// Kingsway Academy Website Interactivity
+// Kingsway Academy - Clean Website Interactivity
 
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add animation to feature cards when they come into view
+    // Simple fade-in animation for cards
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -31,17 +31,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
             }
         });
     }, observerOptions);
     
-    // Observe all interactive elements
+    // Set initial state for animation
     document.querySelectorAll('.feature-card, .teacher-card, .tradition-item').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         observer.observe(element);
     });
     
-    // Royal-themed counter animation for stats
+    // Counter animation for stats
     const stats = document.querySelectorAll('.stat-number');
     
     stats.forEach(stat => {
@@ -62,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             let currentNumber = 0;
-            const increment = targetNumber / 30; // Faster animation
+            const increment = targetNumber / 25;
             
             const updateNumber = () => {
                 if (currentNumber < targetNumber) {
@@ -82,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             };
             
-            // Helper function to format numbers
             function formatNumber(num, showDecimal) {
                 if (showDecimal) {
                     return num.toFixed(1);
@@ -103,82 +106,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Royal-themed alert for CTA buttons
+    // Simple alert for CTA buttons
     const ctaButtons = document.querySelectorAll('.cta-button');
     
     ctaButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             if (this.getAttribute('href') === '#' || this.getAttribute('href') === '') {
                 e.preventDefault();
-                
-                // Create a royal-themed modal instead of alert
-                const modal = document.createElement('div');
-                modal.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(10, 36, 99, 0.9);
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    z-index: 9999;
-                `;
-                
-                modal.innerHTML = `
-                    <div style="
-                        background: white;
-                        padding: 40px;
-                        border-radius: 15px;
-                        text-align: center;
-                        max-width: 500px;
-                        width: 90%;
-                        border: 5px solid #b8860b;
-                        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-                    ">
-                        <i class="fas fa-crown" style="font-size: 3rem; color: #b8860b; margin-bottom: 20px;"></i>
-                        <h2 style="color: #0a2463; margin-bottom: 15px;">Hear Ye, Hear Ye!</h2>
-                        <p style="margin-bottom: 25px; font-size: 1.1rem;">
-                            By royal decree, you have shown interest in Kingsway Academy! 
-                            In a real website, this would direct you to our admissions portal.
-                        </p>
-                        <p style="font-style: italic; color: #666; margin-bottom: 25px;">
-                            "Training Children in the King's Way since 1959"
-                        </p>
-                        <button id="closeModal" style="
-                            background: #b8860b;
-                            color: #0a2463;
-                            border: none;
-                            padding: 12px 30px;
-                            border-radius: 50px;
-                            font-weight: bold;
-                            cursor: pointer;
-                            font-size: 1rem;
-                        ">
-                            Continue Your Royal Journey
-                        </button>
-                    </div>
-                `;
-                
-                document.body.appendChild(modal);
-                
-                // Close modal when button is clicked
-                document.getElementById('closeModal').addEventListener('click', function() {
-                    document.body.removeChild(modal);
-                });
-                
-                // Close modal when clicking outside
-                modal.addEventListener('click', function(e) {
-                    if (e.target === modal) {
-                        document.body.removeChild(modal);
-                    }
-                });
+                alert('Thank you for your interest in Kingsway Academy! In a real website, this would direct you to our admissions portal.');
             }
         });
     });
     
-    // Update current year in legacy badge if needed
+    // Update current year in legacy badge
     const currentYear = new Date().getFullYear();
     const foundingYear = 1959;
     const yearsOfExcellence = currentYear - foundingYear;
@@ -188,26 +128,15 @@ document.addEventListener('DOMContentLoaded', function() {
         legacyYears.textContent = yearsOfExcellence;
     }
     
-    // Add subtle animation to crown icons
-    const crownIcons = document.querySelectorAll('.crown-icon');
-    crownIcons.forEach(icon => {
-        icon.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.2) rotate(10deg)';
-            this.style.transition = 'transform 0.3s ease';
+    // Add hover effect to feature cards
+    const featureCards = document.querySelectorAll('.feature-card');
+    featureCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.15)';
         });
         
-        icon.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1) rotate(0deg)';
+        card.addEventListener('mouseleave', function() {
+            this.style.boxShadow = 'var(--shadow)';
         });
-    });
-    
-    // Add royal flourish to page load
-    window.addEventListener('load', function() {
-        document.body.style.opacity = '0';
-        document.body.style.transition = 'opacity 0.5s ease';
-        
-        setTimeout(() => {
-            document.body.style.opacity = '1';
-        }, 100);
     });
 });
