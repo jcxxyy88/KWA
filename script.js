@@ -52,10 +52,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const originalText = stat.textContent;
         
         // Only animate if it's a number
-        if (/^[\d.,]+%?$/.test(originalText.replace('$', ''))) {
+        if (/^[\d.,]+%?$/.test(originalText.replace('$', '').replace('+', ''))) {
             const isCurrency = originalText.includes('$');
             const isPercentage = originalText.includes('%');
-            const cleanText = originalText.replace(/[$,%]/g, '');
+            const hasPlus = originalText.includes('+');
+            const cleanText = originalText.replace(/[$,%+]/g, '');
             const hasDecimal = cleanText.includes('.');
             
             let targetNumber;
@@ -72,12 +73,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (currentNumber < targetNumber) {
                     currentNumber += increment;
                     
-                    if (isCurrency) {
-                        stat.textContent = '$' + formatNumber(currentNumber, hasDecimal) + (isPercentage ? '%' : '');
-                    } else if (isPercentage) {
-                        stat.textContent = formatNumber(currentNumber, hasDecimal) + '%';
+                    let formattedNumber;
+                    if (hasDecimal) {
+                        formattedNumber = currentNumber.toFixed(1);
                     } else {
-                        stat.textContent = formatNumber(currentNumber, hasDecimal);
+                        formattedNumber = Math.floor(currentNumber).toLocaleString();
+                    }
+                    
+                    if (isCurrency) {
+                        stat.textContent = '$' + formattedNumber + (hasPlus ? '+' : '') + (isPercentage ? '%' : '');
+                    } else if (isPercentage) {
+                        stat.textContent = formattedNumber + '%';
+                    } else if (hasPlus) {
+                        stat.textContent = formattedNumber + '+';
+                    } else {
+                        stat.textContent = formattedNumber;
                     }
                     
                     requestAnimationFrame(updateNumber);
@@ -85,14 +95,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     stat.textContent = originalText;
                 }
             };
-            
-            function formatNumber(num, showDecimal) {
-                if (showDecimal) {
-                    return num.toFixed(1);
-                } else {
-                    return Math.floor(num).toLocaleString();
-                }
-            }
             
             // Start animation when stat comes into view
             const statObserver = new IntersectionObserver((entries) => {
@@ -119,13 +121,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Update current year in legacy badge
-    const currentYear = new Date().getFullYear();
-    const foundingYear = 1959;
-    const yearsOfExcellence = currentYear - foundingYear;
-    
     const legacyYears = document.querySelector('.legacy-years');
     if (legacyYears) {
-        legacyYears.textContent = yearsOfExcellence;
+        // Fixed to 67 years (1959-2026)
+        legacyYears.textContent = '67';
     }
     
     // Add hover effect to feature cards
