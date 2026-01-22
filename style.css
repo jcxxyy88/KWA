@@ -370,18 +370,32 @@ h1, h2, h3, h4 {
     justify-content: center;
     box-shadow: var(--shadow);
     border: 1px solid var(--border-gray);
+    padding: 20px;
+}
+
+/* School Logo Styling */
+.school-logo {
+    max-width: 300px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    margin-bottom: 25px;
+    filter: brightness(1.05) contrast(1.05);
+    transition: transform 0.3s ease;
+}
+
+.school-logo:hover {
+    transform: scale(1.03);
 }
 
 .image-placeholder {
     text-align: center;
     color: var(--text-dark);
-}
-
-.image-placeholder i {
-    font-size: 4.5rem;
-    color: #000000;
-    margin-bottom: 20px;
-    opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 .image-note {
@@ -726,6 +740,12 @@ footer {
     
     .features-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* Adjust logo for mobile */
+    .school-logo {
+        max-width: 220px;
+        max-height: 150px;
     }
 }
 
